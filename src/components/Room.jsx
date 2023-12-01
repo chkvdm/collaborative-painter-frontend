@@ -3,7 +3,9 @@ import io from 'socket.io-client';
 import PaintDesk from './PaintDesk';
 import { useParams } from 'react-router-dom';
 
-const socket = io('http://localhost:3001', {
+import config from '../config.js';
+
+const socket = io(config.apiBaseUrl, {
   reconnection: true,
 });
 
@@ -52,7 +54,7 @@ function Room() {
   return (
     <div>
       <h1>{roomId}</h1>
-      <PaintDesk roomId={roomId} />
+      <PaintDesk roomId={roomId} socket={socket} />
     </div>
   );
 }

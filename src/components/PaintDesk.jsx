@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 
-const socket = io('http://localhost:3001', {
-  reconnection: true,
-});
+// const socket = io('http://localhost:3001', {
+//   reconnection: true,
+// });
 
-const PaintDesk = ({ roomId }) => {
+const PaintDesk = ({ roomId, socket }) => {
   const canvasRef = useRef(null);
   const [drawing, setDrawing] = useState({
     type: 'path',
@@ -95,7 +95,7 @@ const PaintDesk = ({ roomId }) => {
       canvas.removeEventListener('mouseup', stopDrawing);
       socket.off('draw', handleDraw);
     };
-  }, [roomId, drawing]);
+  }, [roomId, drawing, socket]);
 
   const getMousePos = (e) => {
     const rect = canvasRef.current.getBoundingClientRect();
