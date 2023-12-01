@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.selectRoom {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.selectRoom input {
+  width: 300px;
+  text-align: center;
+  margin: auto;
+  display: block;
+}
